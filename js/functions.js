@@ -20,3 +20,7 @@ const getNumber = (str) => {
   }
   return parseInt(numberString, 10);
 };
+
+isStringLengthValid('проверяемая строка', 20);
+isPalindrome('роза АЗОР');
+getNumber('2023 1.5');
