@@ -28,13 +28,13 @@ const renderBigPicture = (picturesInfo) => {
   const pictures = document.querySelector('.pictures');
 
   pictures.addEventListener('click', (evt) => {
-    evt.preventDefault();
     const clickedThumbnail = evt.target.closest('[data-id]');
 
     if (!clickedThumbnail) {
       return;
     }
 
+    evt.preventDefault();
     const currentPicture = picturesInfo.find((item) => item.id === +clickedThumbnail.dataset.id);
 
     showBigPicture();

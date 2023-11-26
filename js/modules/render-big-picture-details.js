@@ -38,30 +38,32 @@ const changeCommentCount = (currentShownCommentsCount, pictureCommentsCount) => 
   bigPictureCommentsCountBlock.textContent = newMessage;
 };
 
-const renderComments = (commentsInfo) => {
+const renderComments = () => {
   commentList.innerHTML = '';
-  showCommentLoadButton();
 
   const fragment = document.createDocumentFragment();
   const shownComments = [];
 
-  for (const commentInfo of commentsInfo) {
+  showCommentLoadButton();
+
+  for (const commentInfo of currentPicture.comments) {
     if (shownComments.length < shownCommentsCount) {
       shownComments.push(commentInfo);
       fragment.append(renderComment(commentInfo));
     }
   }
-  if (shownComments.length >= commentsInfo.length) {
+  if (shownComments.length >= currentPicture.comments.length) {
     hideCommentLoadButton();
+    bigPictureCommentsLoader.removeEventListener('click', commentsLoaderOnclick);
   }
-  changeCommentCount(shownComments.length, commentsInfo.length);
+  changeCommentCount(shownComments.length, currentPicture.comments.length);
   commentList.append(fragment);
 };
 
-const commentsLoaderOnclick = () => {
+function commentsLoaderOnclick() {
   shownCommentsCount += COMMENTS_LOAD_COUNT;
-  renderComments(currentPicture.comments);
-};
+  renderComments();
+}
 
 const fillPictureDetails = (clickedPicture) => {
   currentPicture = clickedPicture;
@@ -74,7 +76,7 @@ const fillPictureDetails = (clickedPicture) => {
   bigPictureCommentsCount.textContent = currentPicture.comments.length;
   bigPictureSocialCaption.textContent = currentPicture.description;
 
-  renderComments(currentPicture.comments);
+  renderComments();
 };
 
 export { fillPictureDetails };
