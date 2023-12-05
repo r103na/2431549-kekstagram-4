@@ -44,9 +44,64 @@ const MESSAGES = [
   'промокод сбермаркет скидка 500р на покупку от 1500: RPZ2NT7L687FJ'
 ];
 
+const SCALE_STEP = 10;
+const MIN_SCALE = 0;
+const MAX_SCALE = 100;
+const DEFAULT_SCALE = 100;
+
+const Effects = {
+  NONE: {
+    name: 'none',
+    style: 'none',
+    min: 0,
+    max: 100,
+    step: 1,
+    unit: '',
+  },
+  CHROME: {
+    name: 'chrome',
+    style: 'grayscale',
+    min: 0,
+    max: 1,
+    step: 0.1,
+    unit: '',
+  },
+  SEPIA: {
+    name: 'sepia',
+    style: 'sepia',
+    min: 0,
+    max: 1,
+    step: 0.1,
+    unit: '',
+  },
+  MARVIN: {
+    name: 'marvin',
+    style: 'invert',
+    min: 0,
+    max: 100,
+    step: 1,
+    unit: '%',
+  },
+  PHOBOS: {
+    name: 'phobos',
+    style: 'blur',
+    min: 0,
+    max: 3,
+    step: 0.1,
+    unit: 'px',
+  },
+  HEAT: {
+    name: 'heat',
+    style: 'brightness',
+    min: 1,
+    max: 3,
+    step: 0.1,
+    unit: '',
+  }
+};
 
 export {
   AVATAR_COUNT, IMAGE_COUNT, LIKE_MAX_COUNT, COMMENT_MAX_COUNT, NAMES,
   DESCRIPTIONS, MESSAGES, COMMENTS_LOAD_COUNT, HASHTAG_MAX_COUNT, VALID_SYMBOLS,
-  ERROR_TEXT
+  ERROR_TEXT, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, Effects
 };

@@ -1,4 +1,7 @@
 import { HASHTAG_MAX_COUNT, VALID_SYMBOLS, ERROR_TEXT } from './constant.js';
+import { resetScale } from './scale.js';
+import { reset } from './effect.js';
+
 
 const body = document.querySelector('body');
 const uploadForm = document.querySelector('.img-upload__form');
@@ -72,6 +75,8 @@ const documentOnKeydown = (evt) => {
 const showImageModal = () => {
   imageOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
+  resetScale();
+  reset();
 
   document.addEventListener('keydown', documentOnKeydown);
   buttonCloseOverlay.addEventListener('click', hideImageModal);
@@ -86,8 +91,6 @@ uploadFile.addEventListener('input', showImageModal);
     imagePreview.src = imageUrl;
   }
 }); */
-
-uploadForm.addEventListener('submit', () => { });
 
 commentsField.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
