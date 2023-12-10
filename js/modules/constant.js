@@ -8,10 +8,27 @@ const COMMENTS_LOAD_COUNT = 5;
 const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 const HASHTAG_MAX_COUNT = 5;
 
+const URL = 'https://29.javascript.pages.academy/kekstagram';
+
+const Route = {
+  GET_DATA: '/data',
+  SEND_DATA: '/',
+};
+
+const Method = {
+  GET: 'GET',
+  POST: 'POST',
+};
+
 const ERROR_TEXT = {
   NOT_UNIQUE: 'Хэштеги не должны повторяться',
   NOT_VALID: 'Хэштег должен начинаться с # и состоять из букв или цифр',
   REACHED_MAX_COUNT: 'Максимум 5 хэштегов'
+};
+
+const SERVER_ERROR_TEXT = {
+  GET_DATA: 'не загрузилося',
+  POST_DATA: 'не отправилося',
 };
 
 const NAMES = [
@@ -103,5 +120,6 @@ const Effects = {
 export {
   AVATAR_COUNT, IMAGE_COUNT, LIKE_MAX_COUNT, COMMENT_MAX_COUNT, NAMES,
   DESCRIPTIONS, MESSAGES, COMMENTS_LOAD_COUNT, HASHTAG_MAX_COUNT, VALID_SYMBOLS,
-  ERROR_TEXT, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, Effects
+  ERROR_TEXT, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, Effects,
+  SERVER_ERROR_TEXT, Method, Route, URL,
 };
