@@ -19,7 +19,7 @@ const showErrorMessage = () => {
   const message = errorMessage.cloneNode(true);
   message.querySelector('.error__button').addEventListener('click', hideErrorMessage);
   document.addEventListener('keydown', onEscapeError);
-  document.addEventListener('click', hideErrorOnMouseClick, { once: true });
+  document.addEventListener('click', hideErrorOnMouseClick);
   document.body.append(message);
 };
 
