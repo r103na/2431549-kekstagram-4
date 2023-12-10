@@ -61,8 +61,8 @@ const MESSAGES = [
   'промокод сбермаркет скидка 500р на покупку от 1500: RPZ2NT7L687FJ'
 ];
 
-const SCALE_STEP = 10;
-const MIN_SCALE = 0;
+const SCALE_STEP = 25;
+const MIN_SCALE = 25;
 const MAX_SCALE = 100;
 const DEFAULT_SCALE = 100;
 

@@ -13,7 +13,7 @@ const buttonCloseOverlay = uploadForm.querySelector('#upload-cancel');
 const hashtagsField = uploadForm.querySelector('.text__hashtags');
 const commentsField = uploadForm.querySelector('.text__description');
 
-/* const imagePreview = document.querySelector('.img-upload__preview img'); */
+const imagePreview = document.querySelector('.img-upload__preview img');
 
 const pristine = new Pristine(uploadForm, {
   classTo: 'img-upload__field-wrapper',
@@ -35,7 +35,7 @@ pristine.addValidator(
   hashtagsField,
   isHashtagValid,
   ERROR_TEXT.NOT_VALID,
-  2,
+  3,
   true
 );
 
@@ -83,14 +83,14 @@ const showImageModal = () => {
 };
 
 uploadFile.addEventListener('input', showImageModal);
-/* uploadFile.addEventListener('change', (event) => {
+uploadFile.addEventListener('change', (event) => {
   const file = event.target.files[0];
 
   if (file) {
     const imageUrl = URL.createObjectURL(file);
     imagePreview.src = imageUrl;
   }
-}); */
+});
 
 commentsField.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
@@ -103,3 +103,15 @@ hashtagsField.addEventListener('keydown', (evt) => {
     evt.stopPropagation();
   }
 });
+
+const setOnFormSubmit = (callback) => {
+  uploadForm.addEventListener('submit', async (evt) => {
+    evt.preventDefault();
+
+    if (pristine.validate()) {
+      await callback(new FormData(uploadForm));
+    }
+  });
+};
+
+export { setOnFormSubmit, hideImageModal };
