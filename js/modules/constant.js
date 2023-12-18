@@ -1,8 +1,4 @@
-const AVATAR_COUNT = 6;
 const IMAGE_COUNT = 25;
-
-const LIKE_MAX_COUNT = 1000;
-const COMMENT_MAX_COUNT = 20;
 const COMMENTS_LOAD_COUNT = 5;
 
 const VALID_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
@@ -27,39 +23,16 @@ const ERROR_TEXT = {
 };
 
 const SERVER_ERROR_TEXT = {
-  GET_DATA: 'не загрузилося',
-  POST_DATA: 'не отправилося',
+  GET_DATA: 'Данные не загрузились',
+  POST_DATA: 'Форма не отправилась',
 };
 
-const NAMES = [
-  'Николай',
-  'Олег',
-  'Алиса',
-  'Антон',
-  'Галина',
-  'Матвей',
-  'Ника',
-  'Диана',
-  'Марина'
-];
+const SubmitButtonText = {
+  IDLE: 'Сохранить',
+  SENDING: 'Сохраняю...'
+};
 
-const DESCRIPTIONS = [
-  'Анапа 2010',
-  'Чемпионат Мира 2018',
-  'Я с мамой',
-  'Мой кот',
-  'На даче'
-];
-
-const MESSAGES = [
-  'Супер',
-  'ок',
-  'привет',
-  'норм',
-  'топчик',
-  '?',
-  'промокод сбермаркет скидка 500р на покупку от 1500: RPZ2NT7L687FJ'
-];
+const FILE_TYPES = ['jpg', 'jpeg', 'png'];
 
 const SCALE_STEP = 25;
 const MIN_SCALE = 25;
@@ -126,8 +99,8 @@ const Effects = {
 };
 
 export {
-  AVATAR_COUNT, IMAGE_COUNT, LIKE_MAX_COUNT, COMMENT_MAX_COUNT, NAMES,
-  DESCRIPTIONS, MESSAGES, COMMENTS_LOAD_COUNT, HASHTAG_MAX_COUNT, VALID_SYMBOLS,
+  IMAGE_COUNT, COMMENTS_LOAD_COUNT, HASHTAG_MAX_COUNT, VALID_SYMBOLS,
   ERROR_TEXT, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, Effects,
-  SERVER_ERROR_TEXT, Method, Route, URL, Filters, FILTER_PICTURES_COUNT
+  SERVER_ERROR_TEXT, Method, Route, URL, Filters, FILTER_PICTURES_COUNT,
+  SubmitButtonText, FILE_TYPES
 };
