@@ -12,20 +12,6 @@ const load = (route, errorText, method = Method.GET, body = null) =>
       throw new Error(errorText);
     });
 
-/* async function getData() {
-  try {
-    const response = await fetch(`${url}/data`);
-
-    if (!response.ok) {
-      throw new Error;
-    }
-
-    return await response.json();
-  } catch (error) {
-    throw new Error(SERVER_ERROR_TEXT.GET_DATA);
-  }
-} */
-
 const getData = () => load(Route.GET_DATA, SERVER_ERROR_TEXT.GET_DATA);
 
 const sendData = (body) => {

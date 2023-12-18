@@ -66,6 +66,14 @@ const MIN_SCALE = 25;
 const MAX_SCALE = 100;
 const DEFAULT_SCALE = 100;
 
+const FILTER_PICTURES_COUNT = 10;
+
+const Filters = {
+  DEFAULT: 'filter-default',
+  RANDOM: 'filter-random',
+  DISCUSSED: 'filter-discussed',
+};
+
 const Effects = {
   NONE: {
     name: 'none',
@@ -121,5 +129,5 @@ export {
   AVATAR_COUNT, IMAGE_COUNT, LIKE_MAX_COUNT, COMMENT_MAX_COUNT, NAMES,
   DESCRIPTIONS, MESSAGES, COMMENTS_LOAD_COUNT, HASHTAG_MAX_COUNT, VALID_SYMBOLS,
   ERROR_TEXT, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, Effects,
-  SERVER_ERROR_TEXT, Method, Route, URL,
+  SERVER_ERROR_TEXT, Method, Route, URL, Filters, FILTER_PICTURES_COUNT
 };

@@ -1,8 +1,9 @@
 import { renderThumbnail } from './modules/render-thumbnail.js';
-import { renderBigPicture } from './modules/render-big-picture.js';
 import { setOnFormSubmit, hideImageModal } from './modules/add-form.js';
 import { showErrorMessage, showSuccessMessage } from './modules/message.js';
 import { getData, sendData } from './modules/api.js';
+import { showFilterButtons } from './modules/filter.js';
+import { debounce } from './modules/utils.js';
 
 setOnFormSubmit(async (data) => {
   try {
@@ -15,7 +16,8 @@ setOnFormSubmit(async (data) => {
 });
 
 getData().then((pictures) => {
+  const debouncedRenderThumbnail = debounce(renderThumbnail);
   renderThumbnail(pictures);
-  renderBigPicture(pictures);
+  showFilterButtons(pictures, debouncedRenderThumbnail);
 });
 

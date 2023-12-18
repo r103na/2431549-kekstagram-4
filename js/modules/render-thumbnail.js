@@ -1,6 +1,7 @@
+import { renderBigPicture } from './render-big-picture.js';
+
 const thumbnailTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const thumbnailsContainer = document.querySelector('.pictures');
-
 
 const getThumbnailFromTemplate = (pictureInfo) => {
   const picture = thumbnailTemplate.cloneNode(true);
@@ -14,7 +15,15 @@ const getThumbnailFromTemplate = (pictureInfo) => {
   return picture;
 };
 
+const clearPictures = () => {
+  const picturesElements = thumbnailsContainer.querySelectorAll('.picture');
+  picturesElements.forEach((picture) => {
+    picture.remove();
+  });
+};
+
 const renderThumbnail = (picturesInfo) => {
+  clearPictures();
   const fragment = document.createDocumentFragment();
 
   for (const pictureInfo of picturesInfo) {
@@ -23,6 +32,7 @@ const renderThumbnail = (picturesInfo) => {
   }
 
   thumbnailsContainer.appendChild(fragment);
+  renderBigPicture(picturesInfo);
 };
 
 export { renderThumbnail };
