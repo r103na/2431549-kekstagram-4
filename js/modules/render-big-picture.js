@@ -4,6 +4,8 @@ const bigPicture = document.querySelector('.big-picture');
 const removeButton = bigPicture.querySelector('.big-picture__cancel');
 const body = document.querySelector('body');
 
+let currentPictures = [];
+
 const hideBigPicture = () => {
   bigPicture.classList.add('hidden');
   body.classList.remove('modal-open');
@@ -24,22 +26,25 @@ const showBigPicture = () => {
   document.addEventListener('keydown', documentOnKeydown);
 };
 
+const picturesContainerOnClick = (evt) => {
+  const clickedThumbnail = evt.target.closest('[data-id]');
+
+  if (!clickedThumbnail) {
+    return;
+  }
+
+  evt.preventDefault();
+  const currentPicture = currentPictures.find((item) => item.id === +clickedThumbnail.dataset.id);
+
+  showBigPicture();
+  fillPictureDetails(currentPicture);
+};
+
 const renderBigPicture = (picturesInfo) => {
-  const pictures = document.querySelector('.pictures');
+  currentPictures = picturesInfo;
 
-  pictures.addEventListener('click', (evt) => {
-    const clickedThumbnail = evt.target.closest('[data-id]');
-
-    if (!clickedThumbnail) {
-      return;
-    }
-
-    evt.preventDefault();
-    const currentPicture = picturesInfo.find((item) => item.id === +clickedThumbnail.dataset.id);
-
-    showBigPicture();
-    fillPictureDetails(currentPicture);
-  });
+  const picturesContainer = document.querySelector('.pictures');
+  picturesContainer.addEventListener('click', picturesContainerOnClick);
 };
 
 export { renderBigPicture };
