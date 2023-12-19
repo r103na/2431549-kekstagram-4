@@ -16,13 +16,13 @@ const Method = {
   POST: 'POST',
 };
 
-const ERROR_TEXT = {
+const ErrorText = {
   NOT_UNIQUE: 'Хэштеги не должны повторяться',
   NOT_VALID: 'Хэштег должен начинаться с # и состоять из букв или цифр',
   REACHED_MAX_COUNT: 'Максимум 5 хэштегов'
 };
 
-const SERVER_ERROR_TEXT = {
+const ServerErrorText = {
   GET_DATA: 'Данные не загрузились',
   POST_DATA: 'Не удалось отправить форму. Попробуйте ещё раз',
 };
@@ -100,7 +100,7 @@ const Effects = {
 
 export {
   IMAGE_COUNT, COMMENTS_LOAD_COUNT, HASHTAG_MAX_COUNT, VALID_SYMBOLS,
-  ERROR_TEXT, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, Effects,
-  SERVER_ERROR_TEXT, Method, Route, URL, Filters, FILTER_PICTURES_COUNT,
+  ErrorText, SCALE_STEP, MIN_SCALE, MAX_SCALE, DEFAULT_SCALE, Effects,
+  ServerErrorText, Method, Route, URL, Filters, FILTER_PICTURES_COUNT,
   SubmitButtonText, FILE_TYPES
 };

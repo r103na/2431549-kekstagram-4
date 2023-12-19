@@ -46,12 +46,13 @@ const renderComments = () => {
 
   showCommentLoadButton();
 
-  for (const commentInfo of currentPicture.comments) {
+  currentPicture.comments.forEach((commentInfo) => {
     if (shownComments.length < shownCommentsCount) {
       shownComments.push(commentInfo);
       fragment.append(renderComment(commentInfo));
     }
-  }
+  });
+
   if (shownComments.length >= currentPicture.comments.length) {
     hideCommentLoadButton();
     bigPictureCommentsLoader.removeEventListener('click', commentsLoaderOnclick);

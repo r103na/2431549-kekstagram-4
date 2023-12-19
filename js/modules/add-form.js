@@ -1,4 +1,4 @@
-import { HASHTAG_MAX_COUNT, VALID_SYMBOLS, ERROR_TEXT, SubmitButtonText, FILE_TYPES } from './constant.js';
+import { HASHTAG_MAX_COUNT, VALID_SYMBOLS, ErrorText, SubmitButtonText, FILE_TYPES } from './constant.js';
 import { resetScale } from './scale.js';
 import { reset } from './effect.js';
 import { sendData } from './api.js';
@@ -37,7 +37,7 @@ const areHashtagsUnique = (value) => {
 pristine.addValidator(
   hashtagsField,
   isHashtagValid,
-  ERROR_TEXT.NOT_VALID,
+  ErrorText.NOT_VALID,
   3,
   true
 );
@@ -45,7 +45,7 @@ pristine.addValidator(
 pristine.addValidator(
   hashtagsField,
   hasReachedHashtagLimit,
-  ERROR_TEXT.REACHED_MAX_COUNT,
+  ErrorText.REACHED_MAX_COUNT,
   2,
   true
 );
@@ -53,7 +53,7 @@ pristine.addValidator(
 pristine.addValidator(
   hashtagsField,
   areHashtagsUnique,
-  ERROR_TEXT.NOT_UNIQUE,
+  ErrorText.NOT_UNIQUE,
   1,
   true
 );
