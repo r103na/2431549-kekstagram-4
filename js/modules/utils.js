@@ -8,26 +8,23 @@ const getRandomInteger = (min, max) => {
 
 const getRandomElement = (array) => array[getRandomInteger(0, array.length - 1)];
 
-function debounce(callback, timeoutDelay = 500) {
+const roundString = (inputString) => {
+  const parsedNumber = parseFloat(inputString);
+
+  if (parsedNumber % 1 !== 0) {
+    return parsedNumber.toFixed(1);
+  } else {
+    return Math.round(parsedNumber).toString();
+  }
+};
+
+const debounce = (callback, timeoutDelay = 500) => {
   let timeoutId;
 
   return (...rest) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
   };
-}
+};
 
-function throttle(callback, delayBetweenFrames) {
-  let lastTime = 0;
-
-  return (...rest) => {
-    const now = new Date();
-
-    if (now - lastTime >= delayBetweenFrames) {
-      callback.apply(this, rest);
-      lastTime = now;
-    }
-  };
-}
-
-export { getRandomElement, getRandomInteger, debounce, throttle };
+export { getRandomElement, getRandomInteger, debounce, roundString };

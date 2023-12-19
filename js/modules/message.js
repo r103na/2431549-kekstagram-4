@@ -1,15 +1,23 @@
+import { showImageModal } from './add-form.js';
+
 const errorMessage = document.querySelector('#error').content.querySelector('.error');
 const successMessage = document.querySelector('#success').content.querySelector('.success');
 
+const errorButtonOnClick = () => {
+  showImageModal();
+};
+
 const hideErrorMessage = () => {
   const errorContainer = document.querySelector('.error');
+
   if (errorContainer) {
     errorContainer.remove();
   }
 };
 
 const hideErrorOnMouseClick = (evt) => {
-  const errorContainer = document.querySelector('.error__inner');
+  const errorContainer = document.querySelector('.success_button');
+
   if (evt.target !== errorContainer) {
     hideErrorMessage();
   }
@@ -17,7 +25,10 @@ const hideErrorOnMouseClick = (evt) => {
 
 const showErrorMessage = () => {
   const message = errorMessage.cloneNode(true);
-  message.querySelector('.error__button').addEventListener('click', hideErrorMessage);
+  const errorButton = message.querySelector('.error__button');
+
+  errorButton.addEventListener('click', errorButtonOnClick);
+
   document.addEventListener('keydown', onEscapeError);
   document.addEventListener('click', hideErrorOnMouseClick);
   document.body.append(message);

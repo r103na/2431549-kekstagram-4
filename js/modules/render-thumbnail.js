@@ -26,10 +26,11 @@ const renderThumbnail = (picturesInfo) => {
   clearPictures();
   const fragment = document.createDocumentFragment();
 
-  for (const pictureInfo of picturesInfo) {
+  picturesInfo.forEach((pictureInfo) => {
     const newThumbnail = getThumbnailFromTemplate(pictureInfo);
     fragment.append(newThumbnail);
-  }
+  });
+
 
   thumbnailsContainer.appendChild(fragment);
   renderBigPicture(picturesInfo);
