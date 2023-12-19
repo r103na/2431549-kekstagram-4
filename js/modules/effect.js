@@ -1,4 +1,5 @@
 import { Effects } from './constant.js';
+import { roundString } from './utils.js';
 
 const modal = document.querySelector('.img-upload');
 
@@ -60,7 +61,7 @@ const effectsChange = (evt) => {
 };
 
 const onUpdateSlider = () => {
-  const sliderValue = effectSlider.noUiSlider.get();
+  const sliderValue = roundString(effectSlider.noUiSlider.get());
 
   if (chosenEffect === DEFAULT_EFFECT) {
     imageUpload.style.filter = DEFAULT_EFFECT.style;

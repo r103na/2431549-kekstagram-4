@@ -24,7 +24,7 @@ const ERROR_TEXT = {
 
 const SERVER_ERROR_TEXT = {
   GET_DATA: 'Данные не загрузились',
-  POST_DATA: 'Форма не отправилась',
+  POST_DATA: 'Не удалось отправить форму. Попробуйте ещё раз',
 };
 
 const SubmitButtonText = {
