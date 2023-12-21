@@ -67,11 +67,11 @@ const hideImageModal = () => {
   buttonCloseOverlay.removeEventListener('click', hideImageModal);
 };
 
-const documentOnKeydown = (evt) => {
+const onDocumentKeydown = (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     hideImageModal();
-    document.removeEventListener('keydown', documentOnKeydown);
+    document.removeEventListener('keydown', onDocumentKeydown);
   }
 };
 
@@ -81,7 +81,7 @@ const showImageModal = () => {
   resetScale();
   reset();
 
-  document.addEventListener('keydown', documentOnKeydown);
+  document.addEventListener('keydown', onDocumentKeydown);
   buttonCloseOverlay.addEventListener('click', hideImageModal);
 };
 
@@ -104,12 +104,12 @@ const showImage = () => {
   }
 };
 
-const uploadOnChange = (evt) => {
+const onUploadChange = (evt) => {
   showImage(evt);
   showImageModal();
 };
 
-uploadFile.addEventListener('change', uploadOnChange);
+uploadFile.addEventListener('change', onUploadChange);
 
 commentsField.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
@@ -133,7 +133,7 @@ const unblockSubmitButton = () => {
   buttonCloseOverlay.textContent = SubmitButtonText.IDLE;
 };
 
-const setOnFormSubmit = () => {
+const onFormSubmit = () => {
   uploadForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
     const isValid = pristine.validate();
@@ -155,4 +155,4 @@ const setOnFormSubmit = () => {
   });
 };
 
-export { setOnFormSubmit, hideImageModal, showImageModal };
+export { onFormSubmit, hideImageModal, showImageModal };

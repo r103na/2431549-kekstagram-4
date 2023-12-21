@@ -55,13 +55,13 @@ const renderComments = () => {
 
   if (shownComments.length >= currentPicture.comments.length) {
     hideCommentLoadButton();
-    bigPictureCommentsLoader.removeEventListener('click', commentsLoaderOnclick);
+    bigPictureCommentsLoader.removeEventListener('click', onCommentsLoaderClick);
   }
   changeCommentCount(shownComments.length, currentPicture.comments.length);
   commentList.append(fragment);
 };
 
-function commentsLoaderOnclick() {
+function onCommentsLoaderClick() {
   shownCommentsCount += COMMENTS_LOAD_COUNT;
   renderComments();
 }
@@ -70,7 +70,7 @@ const fillPictureDetails = (clickedPicture) => {
   currentPicture = clickedPicture;
   shownCommentsCount = COMMENTS_LOAD_COUNT;
 
-  bigPictureCommentsLoader.addEventListener('click', commentsLoaderOnclick);
+  bigPictureCommentsLoader.addEventListener('click', onCommentsLoaderClick);
 
   bigPictureImg.src = currentPicture.url;
   bigPictureLikesCount.textContent = currentPicture.likes;

@@ -11,11 +11,11 @@ const hideBigPicture = () => {
   body.classList.remove('modal-open');
 };
 
-const documentOnKeydown = (evt) => {
+const onDocumentKeydown = (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     hideBigPicture();
-    document.removeEventListener('keydown', documentOnKeydown);
+    document.removeEventListener('keydown', onDocumentKeydown);
   }
 };
 
@@ -23,10 +23,10 @@ const showBigPicture = () => {
   bigPicture.classList.remove('hidden');
   body.classList.add('modal-open');
   removeButton.addEventListener('click', hideBigPicture);
-  document.addEventListener('keydown', documentOnKeydown);
+  document.addEventListener('keydown', onDocumentKeydown);
 };
 
-const picturesContainerOnClick = (evt) => {
+const onPicturesContainerClick = (evt) => {
   const clickedThumbnail = evt.target.closest('[data-id]');
 
   if (!clickedThumbnail) {
@@ -44,7 +44,7 @@ const renderBigPicture = (picturesInfo) => {
   currentPictures = picturesInfo;
 
   const picturesContainer = document.querySelector('.pictures');
-  picturesContainer.addEventListener('click', picturesContainerOnClick);
+  picturesContainer.addEventListener('click', onPicturesContainerClick);
 };
 
 export { renderBigPicture };
