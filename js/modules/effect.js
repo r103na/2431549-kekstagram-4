@@ -49,7 +49,7 @@ const updateSlider = () => {
   }
 };
 
-const effectsChange = (evt) => {
+const onEffectsChange = (evt) => {
   if (!evt.target.classList.contains('effects__radio')) {
     return;
   }
@@ -60,7 +60,7 @@ const effectsChange = (evt) => {
   updateSlider();
 };
 
-const onUpdateSlider = () => {
+const onSliderUpdate = () => {
   const sliderValue = roundString(effectSlider.noUiSlider.get());
 
   if (chosenEffect === DEFAULT_EFFECT) {
@@ -77,7 +77,7 @@ const reset = () => {
   updateSlider();
 };
 
-effects.addEventListener('change', effectsChange);
-effectSlider.noUiSlider.on('update', onUpdateSlider);
+effects.addEventListener('change', onEffectsChange);
+effectSlider.noUiSlider.on('update', onSliderUpdate);
 
 export { reset };
