@@ -7,7 +7,7 @@ const onErrorButtonClick = () => {
   showImageModal();
 };
 
-const removeEvtListenersErrorMsg = () => {
+const removeEvtListenersError = () => {
   const errorButton = document.querySelector('.error__button');
   errorButton.removeEventListener('click', onErrorButtonClick);
 
@@ -19,7 +19,7 @@ const hideErrorMessage = () => {
   const errorContainer = document.querySelector('.error');
 
   if (errorContainer) {
-    removeEvtListenersErrorMsg();
+    removeEvtListenersError();
     errorContainer.remove();
   }
 };
